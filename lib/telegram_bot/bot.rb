@@ -43,6 +43,12 @@ module TelegramBot
       Message.new(response.result)
     end
 
+    def set_webhook(url)
+      response = request(:setWebhook, url: url)
+      logger.info "setting webhook: #{url}"
+      response
+    end
+
     private
     attr_reader :token
     attr_reader :logger
